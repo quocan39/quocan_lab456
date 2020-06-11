@@ -17,19 +17,27 @@ namespace Nguyenquocan_lab456.Controllers
             _dbContext = new ApplicationDbContext();
         }
 
-        public object ViewModel { get; private set; }
-
+      
+        public ActionResult Create()
+        {
+            var ViewModel = new CourseViewModel
+            {
+                Categories = _dbContext.Categories.ToList()
+            };
+            return View(ViewModel);
+        }
         // GET: Courses
         [Authorize]
         [HttpPost]
-        public ActionResult Create(CourseViewModel Viewmodel)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CourseViewModel ViewModel)
         {
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
-                DateTime = Viewmodel.GetDateTime(),
-                CategoryId = Viewmodel.Category,
-                Place = Viewmodel.Place        
+                dateTime = ViewModel.GetDateTime(),
+                CategoryId = ViewModel.Category,
+                Place = ViewModel.Place        
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();

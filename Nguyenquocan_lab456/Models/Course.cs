@@ -15,11 +15,11 @@ namespace Nguyenquocan_lab456.Models
         [Required]
         [StringLength(255)]
         public string Place { get; set; }
-        public DateTime Datetime { get; set; }
+        public DateTime dateTime { get; set; }
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
-        public object DateTime { get; internal set; }
+        public object datetime { get; internal set; }
     }
 
   
