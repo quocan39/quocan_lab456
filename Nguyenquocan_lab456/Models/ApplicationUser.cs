@@ -33,5 +33,4 @@ namespace Nguyenquocan_lab456.Models
         }
     }
 
-
 }
