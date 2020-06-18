@@ -17,7 +17,7 @@ namespace Nguyenquocan_lab456.Controllers
             _dbContext = new ApplicationDbContext();
         }
 
-      
+
         public ActionResult Create()
         {
             var ViewModel = new CourseViewModel

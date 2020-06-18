@@ -22,7 +22,7 @@ namespace Nguyenquocan_lab456.Controllers
             var upcommingCourses = _dbContext.Courses
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
-                .Where(c => c.dateTime > DateTime.Now);
+                .Where(c => c.dateTime > DateTime.Now).ToList();
             return View(upcommingCourses);
         }
 
