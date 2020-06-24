@@ -16,12 +16,12 @@ namespace Nguyenquocan_lab456.Models
         [StringLength(255)]
         public string Name { get; set; }
         public ICollection<Following> Followers { get; set; }
-        public ICollection<Following> Followeers { get; set; }
+        public ICollection<Following> Followees { get; set; }
 
-        public ApplicationUser()
+       public ApplicationUser()
         {
-            Followers = new Collection<Following>();
-            Followeers = new Collection<Following>();
+           Followers = new Collection<Following>();
+           Followees = new Collection<Following>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

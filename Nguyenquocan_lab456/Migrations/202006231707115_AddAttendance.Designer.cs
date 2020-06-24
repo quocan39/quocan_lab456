@@ -7,13 +7,13 @@ namespace Nguyenquocan_lab456.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddFollowing : IMigrationMetadata
+    public sealed partial class AddAttendance : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFollowing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAttendance));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006180341272_AddFollowing"; }
+            get { return "202006231707115_AddAttendance"; }
         }
         
         string IMigrationMetadata.Source

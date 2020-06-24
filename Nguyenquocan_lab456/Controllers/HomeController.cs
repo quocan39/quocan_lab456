@@ -1,4 +1,5 @@
 ﻿using Nguyenquocan_lab456.Models;
+using Nguyenquocan_lab456.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -23,7 +24,12 @@ namespace Nguyenquocan_lab456.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.dateTime > DateTime.Now).ToList();
-            return View(upcommingCourses);
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourse = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()

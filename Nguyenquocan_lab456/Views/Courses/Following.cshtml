@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Nguyenquocan_lab456.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Following";
+}
+
+<h2>
+    Following
+    @foreach (var item in Model)
+    {
+        <div class="content-course">
+            <hr />
+            <div class="name-gv">
+                <b>@item.Name</b>
+                <button class=" btn btn-info btn-sm js-toggle-follow" data-user-id="@item.Id">UnFollow</button>
+            </div>
+        </div>
+    }
+</h2>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+                    .done(function () {
+                        button.text("unfollowing");
+                    })
+                    .fail(function () {
+                        $.post("/api/unfollowing", { followeeId: button.attr("data-user-id") })
+                            .done(function () {
+                                button.text("following");
+                            })
+                    })
+            });
+        });
+    </script>
+}
